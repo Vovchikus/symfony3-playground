@@ -1,3 +1,12 @@
+car_manager:
+    resource: "@CarManagerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+cars:
+    type:     rest
+    resource: "@CarManagerBundle/Controller/CarController.php"
