@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new CarManagerBundle\CarManagerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -29,7 +29,7 @@ class CarController extends FOSRestController
       ->getManager()
       ->getRepository(Car::class);
     $cars = $carRepository->findAll();
-    $view = $this->view($cars, 200)->setTemplateVar('cars');
+    $view = $this->view($cars, 200);
     return $this->handleView($view);
   }
 

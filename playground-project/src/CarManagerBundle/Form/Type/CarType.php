@@ -30,6 +30,9 @@ class CarType extends AbstractType
       ->add('color', TextType::class)
       ->add('comment', TextType::class)
       ->add('condition', TextType::class)
+      ->add('mark', TextType::class)
+      ->add('model', TextType::class)
+      ->add('source', TextType::class)
       ->add('engine', new EngineType());
   }
 

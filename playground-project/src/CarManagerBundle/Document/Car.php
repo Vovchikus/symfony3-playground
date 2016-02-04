@@ -40,6 +40,21 @@ class Car
   protected $condition;
 
   /**
+   * @MongoDB\String
+   */
+  protected $mark;
+
+  /**
+   * @MongoDB\String
+   */
+  protected $model;
+
+  /**
+   * @MongoDB\String
+   */
+  protected $source;
+
+  /**
    * @MongoDB\EmbedOne(targetDocument="Engine")
    */
   protected $engine;
@@ -150,6 +165,53 @@ class Car
     $this->engine = $engine;
   }
 
+  /**
+   * @return mixed
+   */
+  public function getMark()
+  {
+    return $this->mark;
+  }
+
+  /**
+   * @param mixed $mark
+   */
+  public function setMark($mark)
+  {
+    $this->mark = $mark;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getModel()
+  {
+    return $this->model;
+  }
+
+  /**
+   * @param mixed $model
+   */
+  public function setModel($model)
+  {
+    $this->model = $model;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getSource()
+  {
+    return $this->source;
+  }
+
+  /**
+   * @param mixed $source
+   */
+  public function setSource($source)
+  {
+    $this->source = $source;
+  }
 
 
 
