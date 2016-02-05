@@ -9,15 +9,16 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
  */
 class Car
 {
+
   /**
-   * @MongoDB\Id(type="int", strategy="INCREMENT")
+   * @MongoDB\Id()
    */
   protected $id;
 
   /**
    * @MongoDB\Integer
    */
-  protected $cId;
+  protected $externalId;
 
   /**
    * @MongoDB\String
@@ -55,14 +56,22 @@ class Car
   protected $source;
 
   /**
+   * @MongoDB\Integer
+   */
+  protected $price;
+
+  /**
+   * @MongoDB\Integer
+   */
+  protected $run;
+
+  /**
    * @MongoDB\EmbedOne(targetDocument="Engine")
    */
   protected $engine;
 
   /**
-   * Get id
-   *
-   * @return int $id
+   * @return mixed
    */
   public function getId()
   {
@@ -70,11 +79,27 @@ class Car
   }
 
   /**
+   * @param mixed $id
+   */
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  /**
    * @return mixed
    */
-  public function getCId()
+  public function getExternalId()
   {
-    return $this->cId;
+    return $this->externalId;
+  }
+
+  /**
+   * @param mixed $externalId
+   */
+  public function setExternalId($externalId)
+  {
+    $this->externalId = $externalId;
   }
 
   /**
@@ -86,27 +111,19 @@ class Car
   }
 
   /**
-   * @return mixed
-   */
-  public function getColor()
-  {
-    return $this->color;
-  }
-
-  /**
-   * @param mixed $cId
-   */
-  public function setCId($cId)
-  {
-    $this->cId = $cId;
-  }
-
-  /**
    * @param mixed $category
    */
   public function setCategory($category)
   {
     $this->category = $category;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getColor()
+  {
+    return $this->color;
   }
 
   /**
@@ -147,22 +164,6 @@ class Car
   public function setCondition($condition)
   {
     $this->condition = $condition;
-  }
-
-  /**
-   * @return mixed
-   */
-  public function getEngine()
-  {
-    return $this->engine;
-  }
-
-  /**
-   * @param mixed $engine
-   */
-  public function setEngine($engine)
-  {
-    $this->engine = $engine;
   }
 
   /**
@@ -212,6 +213,55 @@ class Car
   {
     $this->source = $source;
   }
+
+  /**
+   * @return mixed
+   */
+  public function getPrice()
+  {
+    return $this->price;
+  }
+
+  /**
+   * @param mixed $price
+   */
+  public function setPrice($price)
+  {
+    $this->price = $price;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getRun()
+  {
+    return $this->run;
+  }
+
+  /**
+   * @param mixed $run
+   */
+  public function setRun($run)
+  {
+    $this->run = $run;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getEngine()
+  {
+    return $this->engine;
+  }
+
+  /**
+   * @param mixed $engine
+   */
+  public function setEngine($engine)
+  {
+    $this->engine = $engine;
+  }
+
 
 
 

@@ -3,9 +3,7 @@
 namespace CarManagerBundle\Controller;
 
 use CarManagerBundle\Document\Car;
-use CarManagerBundle\Document\Engine;
 use CarManagerBundle\Form\Type\CarType;
-use CarManagerBundle\Form\Type\EngineType;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations\View;
@@ -30,6 +28,20 @@ class CarController extends FOSRestController
       ->getRepository(Car::class);
     $cars = $carRepository->findAll();
     $view = $this->view($cars, 200);
+    return $this->handleView($view);
+  }
+
+  /**
+   * @param $id
+   * @return Response
+   */
+  public function getCarAction($id)
+  {
+    $carRepository = $this->get('doctrine_mongodb')
+      ->getManager()
+      ->getRepository(Car::class);
+    $car = $carRepository->find($id);
+    $view = $this->view($car, 200);
     return $this->handleView($view);
   }
 

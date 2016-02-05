@@ -25,7 +25,7 @@ class CarType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     $builder
-      ->add('cId', IntegerType::class)
+      ->add('externalId', TextType::class)
       ->add('category', TextType::class)
       ->add('color', TextType::class)
       ->add('comment', TextType::class)
@@ -33,6 +33,8 @@ class CarType extends AbstractType
       ->add('mark', TextType::class)
       ->add('model', TextType::class)
       ->add('source', TextType::class)
+      ->add('price', IntegerType::class)
+      ->add('run', IntegerType::class)
       ->add('engine', new EngineType());
   }
 
