@@ -71,6 +71,11 @@ class Car
   protected $engine;
 
   /**
+   * @MongoDB\ReferenceOne(targetDocument="Project")
+   */
+  protected $project;
+
+  /**
    * @return mixed
    */
   public function getId()
@@ -261,6 +266,23 @@ class Car
   {
     $this->engine = $engine;
   }
+
+  /**
+   * @return mixed
+   */
+  public function getProject()
+  {
+    return $this->project;
+  }
+
+  /**
+   * @param mixed $project
+   */
+  public function setProject($project)
+  {
+    $this->project = $project;
+  }
+
 
 
 

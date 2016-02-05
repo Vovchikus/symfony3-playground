@@ -3,6 +3,7 @@
 namespace CarManagerBundle\Controller;
 
 use CarManagerBundle\Document\Car;
+use CarManagerBundle\Document\Project;
 use CarManagerBundle\Form\Type\CarType;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -53,12 +54,16 @@ class CarController extends FOSRestController
   public function postCarAction(Request $request)
   {
     $car = new Car();
+    $project = new Project();
+    $car->setProject($project);
+
     $form = $this->createForm(new CarType(), $car);
     $form->handleRequest($request);
 
     /** @var DocumentManager $dm */
     $dm = $this->get('doctrine_mongodb')->getManager();
     $dm->persist($car);
+    $dm->persist($project);
     $dm->flush();
 
     return $this->view($car, 201);

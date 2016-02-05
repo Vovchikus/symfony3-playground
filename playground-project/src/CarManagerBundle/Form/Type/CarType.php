@@ -35,7 +35,9 @@ class CarType extends AbstractType
       ->add('source', TextType::class)
       ->add('price', IntegerType::class)
       ->add('run', IntegerType::class)
-      ->add('engine', new EngineType());
+      ->add('engine', new EngineType())
+      ->add('project', new ProjectType())
+    ;
   }
 
   /**
